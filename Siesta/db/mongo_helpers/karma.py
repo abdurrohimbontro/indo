@@ -1,4 +1,4 @@
-from Siesta.services.mongo2 import db
+from Kim.services.mongo2 import db
 
 karmadb = db.karma2
 
