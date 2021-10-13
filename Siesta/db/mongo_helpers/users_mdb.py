@@ -1,13 +1,13 @@
 import pymongo
 
-from Siesta.config import get_str_key
+from Kim.config import get_str_key
 
 MONGO2 = get_str_key("FILTERS_MONGO", None)
 MONGO = get_str_key("MONGO_URI", required=True)
 if MONGO2 == None:
     MONGO2 = MONGO
 myclient = pymongo.MongoClient(MONGO2)
-mydb = myclient["Daisy"]
+mydb = myclient["polisi"]
 mycol = mydb["USERS"]
 
 
