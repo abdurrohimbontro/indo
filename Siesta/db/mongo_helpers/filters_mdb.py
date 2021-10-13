@@ -1,13 +1,13 @@
 import pymongo
 
-from Siesta.config import get_str_key
+from Kim.config import get_str_key
 
 MONGO2 = get_str_key("FILTERS_MONGO", None)
 MONGO = get_str_key("MONGO_URI", required=True)
 if MONGO2 == None:
     MONGO2 = MONGO
 myclient = pymongo.MongoClient(MONGO2)
-mydb = myclient["Siesta"]
+mydb = myclient["polisi"]
 
 
 async def add_filter(grp_id, text, reply_text, btn, file, alert):
@@ -25,8 +25,7 @@ async def add_filter(grp_id, text, reply_text, btn, file, alert):
     try:
         mycol.update_one({"text": str(text)}, {"$set": data}, upsert=True)
     except:
-        print("Couldnt save, check your db")
-
+        print("Tidak dapat menyimpan, periksa db Anda")
 
 async def find_filter(group_id, name):
     mycol = mydb[str(group_id)]
@@ -69,25 +68,25 @@ async def delete_filter(message, text, group_id):
     if query == 1:
         mycol.delete_one(myquery)
         await message.reply_text(
-            f"'`{text}`'  deleted. I'll not respond to that filter anymore.",
+            f"'`{text}`'    dihapus. Saya tidak akan menanggapi filter itu lagi.",
             quote=True,
             parse_mode="md",
         )
     else:
-        await message.reply_text("Couldn't find that filter!", quote=True)
+        await message.reply_text("Tidak dapat menemukan filter itu!", quote=True)
 
 
 async def del_all(message, group_id, title):
     if str(group_id) not in mydb.list_collection_names():
-        await message.edit_text(f"Nothing to remove in {title}!")
+        await message.edit_text(f"Tidak ada yang perlu dihapus {title}!")
         return
 
     mycol = mydb[str(group_id)]
     try:
         mycol.drop()
-        await message.edit_text(f"All filters from {title} has been removed")
+        await message.edit_text(f"Semua filter dari {title} telah dihapus")
     except:
-        await message.edit_text(f"Couldn't remove all filters from group!")
+        await message.edit_text(f"Tidak dapat menghapus semua filter dari grup!")
         return
 
 
