@@ -1,6 +1,6 @@
 import pymongo
 
-from Siesta.config import get_str_key
+from kim.config import get_str_key
 
 MONGO2 = get_str_key("FILTERS_MONGO", None)
 MONGO = get_str_key("MONGO_URI", required=True)
@@ -34,7 +34,7 @@ async def add_connection(group_id, user_id):
             mycol.insert_one(data)
             return True
         except:
-            print("Some error occured!")
+            print("Beberapa kesalahan terjadi!")
 
     else:
         try:
@@ -47,7 +47,7 @@ async def add_connection(group_id, user_id):
             )
             return True
         except:
-            print("Some error occured!")
+            print("Beberapa kesalahan terjadi!")
 
 
 async def active_connection(user_id):
