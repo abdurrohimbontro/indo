@@ -1,4 +1,4 @@
-# By @TroJanzHEX
+# KIM BOT
 import io
 import os
 import shutil
@@ -22,12 +22,12 @@ async def rotate_90(client, message):
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "rotate_90.jpg"
         if not message.reply_to_message.empty:
             msg = await message.reply_to_message.reply_text(
-                "Downloading image", quote=True
+                "Mendownload foto", quote=True
             )
             a = await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
-            await msg.edit("Processing Image...")
+            await msg.edit("Memproses gambar...")
             src = cv2.imread(a)
             image = cv2.rotate(src, cv2.cv2.ROTATE_90_CLOCKWISE)
             cv2.imwrite(edit_img_loc, image)
@@ -35,7 +35,7 @@ async def rotate_90(client, message):
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
         else:
-            await message.reply_text("Why did you delete that??")
+            await message.reply_text("Kenapa kamu menghapusnya...??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
         except Exception:
@@ -47,7 +47,7 @@ async def rotate_90(client, message):
         else:
             try:
                 await message.reply_to_message.reply_text(
-                    "Something went wrong!", quote=True
+                    "Ada suatu yang salah!", quote=True
                 )
             except Exception:
                 return
@@ -62,12 +62,12 @@ async def rotate_180(client, message):
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "rotate_180.jpg"
         if not message.reply_to_message.empty:
             msg = await message.reply_to_message.reply_text(
-                "Downloading image", quote=True
+                "Mendownload foto", quote=True
             )
             a = await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
-            await msg.edit("Processing Image...")
+            await msg.edit("Mendownload gambar...")
             src = cv2.imread(a)
             image = cv2.rotate(src, cv2.ROTATE_180)
             cv2.imwrite(edit_img_loc, image)
@@ -75,7 +75,7 @@ async def rotate_180(client, message):
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
         else:
-            await message.reply_text("Why did you delete that??")
+            await message.reply_text("Kenapa kamu menghapusnya...??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
         except Exception:
@@ -87,7 +87,7 @@ async def rotate_180(client, message):
         else:
             try:
                 await message.reply_to_message.reply_text(
-                    "Something went wrong!", quote=True
+                    "ada suatu yang salah!", quote=True
                 )
             except Exception:
                 return
@@ -102,12 +102,12 @@ async def rotate_270(client, message):
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "rotate_270.jpg"
         if not message.reply_to_message.empty:
             msg = await message.reply_to_message.reply_text(
-                "Downloading image", quote=True
+                "Mendownload foto", quote=True
             )
             a = await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
-            await msg.edit("Processing Image...")
+            await msg.edit("Mendownload foto...")
             src = cv2.imread(a)
             image = cv2.rotate(src, cv2.ROTATE_90_COUNTERCLOCKWISE)
             cv2.imwrite(edit_img_loc, image)
@@ -115,7 +115,7 @@ async def rotate_270(client, message):
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
         else:
-            await message.reply_text("Why did you delete that??")
+            await message.reply_text("Kenapa kamu menghapusnya...??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
         except Exception:
@@ -127,7 +127,7 @@ async def rotate_270(client, message):
         else:
             try:
                 await message.reply_to_message.reply_text(
-                    "Something went wrong!", quote=True
+                    "ada suatu yang salah!", quote=True
                 )
             except Exception:
                 return
@@ -154,7 +154,7 @@ async def round_sticker(client, message):
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "rounded.webp"
         if not message.reply_to_message.empty:
             msg = await message.reply_to_message.reply_text(
-                "Downloading image", quote=True
+                "Mendownload foto", quote=True
             )
             a = await client.download_media(
                 message=message.reply_to_message, file_name=download_location
@@ -174,7 +174,7 @@ async def round_sticker(client, message):
             await message.reply_to_message.reply_sticker(edit_img_loc, quote=True)
             await msg.delete()
         else:
-            await message.reply_text("Why did you delete that??")
+            await message.reply_text("Kenapa kamu menghapusnya...??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
         except Exception:
@@ -186,7 +186,7 @@ async def round_sticker(client, message):
         else:
             try:
                 await message.reply_to_message.reply_text(
-                    "Something went wrong!", quote=True
+                    "Ada suatu yang salah!", quote=True
                 )
             except Exception:
                 return
@@ -201,12 +201,12 @@ async def inverted(client, message):
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "inverted.png"
         if not message.reply_to_message.empty:
             msg = await message.reply_to_message.reply_text(
-                "Downloading image", quote=True
+                "Mendownload foto", quote=True
             )
             a = await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
-            await msg.edit("Processing Image...")
+            await msg.edit("Memproses gambar...")
             image = Image.open(a)
             inverted_image = ImageOps.invert(image)
             inverted_image.save(edit_img_loc)
@@ -214,7 +214,7 @@ async def inverted(client, message):
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
         else:
-            await message.reply_text("Why did you delete that??")
+            await message.reply_text("Kenapa kamu menghapusnya...??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
         except Exception:
@@ -226,7 +226,7 @@ async def inverted(client, message):
         else:
             try:
                 await message.reply_to_message.reply_text(
-                    "Something went wrong!", quote=True
+                    "Ada suatu yang salah!", quote=True
                 )
             except Exception:
                 return
@@ -242,12 +242,12 @@ async def removebg_plain(client, message):
             edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "nobgplain.png"
             if not message.reply_to_message.empty:
                 msg = await message.reply_to_message.reply_text(
-                    "Downloading image", quote=True
+                    "Mendownload foto", quote=True
                 )
                 await client.download_media(
                     message=message.reply_to_message, file_name=download_location
                 )
-                await msg.edit("Processing Image...")
+                await msg.edit("Memproses gambar...")
 
                 response = requests.post(
                     "https://api.remove.bg/v1.0/removebg",
@@ -260,7 +260,7 @@ async def removebg_plain(client, message):
                         out.write(response.content)
                 else:
                     await message.reply_to_message.reply_text(
-                        "Check if your api is correct", quote=True
+                        "Benarkan jika api kamu salah", quote=True
                     )
                     return
 
@@ -268,7 +268,7 @@ async def removebg_plain(client, message):
                 await message.reply_to_message.reply_document(edit_img_loc, quote=True)
                 await msg.delete()
             else:
-                await message.reply_text("Why did you delete that??")
+                await message.reply_text("Kenapa kamu menghapusnya...??")
             try:
                 shutil.rmtree(f"./DOWNLOADS/{userid}")
             except Exception:
@@ -286,7 +286,7 @@ async def removebg_plain(client, message):
         else:
             try:
                 await message.reply_to_message.reply_text(
-                    "Something went wrong!", quote=True
+                    "Ada suatu yang salah!", quote=True
                 )
             except Exception:
                 return
@@ -302,12 +302,12 @@ async def removebg_white(client, message):
             edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "nobgwhite.png"
             if not message.reply_to_message.empty:
                 msg = await message.reply_to_message.reply_text(
-                    "Downloading image", quote=True
+                    "Mendownload foto", quote=True
                 )
                 await client.download_media(
                     message=message.reply_to_message, file_name=download_location
                 )
-                await msg.edit("Processing Image...")
+                await msg.edit("Memproses gambar...")
 
                 response = requests.post(
                     "https://api.remove.bg/v1.0/removebg",
@@ -328,7 +328,7 @@ async def removebg_white(client, message):
                 await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
                 await msg.delete()
             else:
-                await message.reply_text("Why did you delete that??")
+                await message.reply_text("Kenapa kamu menghapusnya...??")
             try:
                 shutil.rmtree(f"./DOWNLOADS/{userid}")
             except Exception:
@@ -346,7 +346,7 @@ async def removebg_white(client, message):
         else:
             try:
                 await message.reply_to_message.reply_text(
-                    "Something went wrong!", quote=True
+                    "Ada suatu yang salah!", quote=True
                 )
             except Exception:
                 return
@@ -362,12 +362,12 @@ async def removebg_sticker(client, message):
             edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "nobgsticker.webp"
             if not message.reply_to_message.empty:
                 msg = await message.reply_to_message.reply_text(
-                    "Downloading image", quote=True
+                    "Mendownload foto", quote=True
                 )
                 await client.download_media(
                     message=message.reply_to_message, file_name=download_location
                 )
-                await msg.edit("Processing Image...")
+                await msg.edit("Memproses gambar...")
 
                 response = requests.post(
                     "https://api.remove.bg/v1.0/removebg",
@@ -380,7 +380,7 @@ async def removebg_sticker(client, message):
                         out.write(response.content)
                 else:
                     await message.reply_to_message.reply_text(
-                        "Check if your api is correct", quote=True
+                        "Benarkan jika api key mu salah", quote=True
                     )
                     return
 
@@ -388,7 +388,7 @@ async def removebg_sticker(client, message):
                 await message.reply_to_message.reply_sticker(edit_img_loc, quote=True)
                 await msg.delete()
             else:
-                await message.reply_text("Why did you delete that??")
+                await message.reply_text("Kenapa kamu menghapusnya...??")
             try:
                 shutil.rmtree(f"./DOWNLOADS/{userid}")
             except Exception:
@@ -406,7 +406,7 @@ async def removebg_sticker(client, message):
         else:
             try:
                 await message.reply_to_message.reply_text(
-                    "Something went wrong!", quote=True
+                    "Ada suatu yang salah!", quote=True
                 )
             except Exception:
                 return
