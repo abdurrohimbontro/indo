@@ -1,11 +1,11 @@
 from typing import Dict, List, Union
 
-from Siesta.services.mongo2 import db
+from Kim.services.mongo2 import db
 
 filtersdb = db.filters
 
 
-""" Filters funcions """
+""" Fungsi filter """
 
 
 async def _get_filters(chat_id: int) -> Dict[str, int]:
