@@ -1,4 +1,4 @@
-# By @TroJanzHEX
+# Kim official
 import asyncio
 import os
 import shutil
@@ -13,12 +13,12 @@ async def normalglitch_1(client, message):
         edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "normalglitch_1.jpg"
         if not message.reply_to_message.empty:
             msg = await message.reply_to_message.reply_text(
-                "Downloading image", quote=True
+                "Mendownload foto", quote=True
             )
             await client.download_media(
                 message=message.reply_to_message, file_name=download_location
             )
-            await msg.edit("Processing Image...")
+            await msg.edit("Memproses gambar...")
             cd = ["glitch_this", "-c", "-o", edit_img_loc, download_location, "1"]
             process = await asyncio.create_subprocess_exec(
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
@@ -28,7 +28,7 @@ async def normalglitch_1(client, message):
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)
             await msg.delete()
         else:
-            await message.reply_text("Why did you delete that??")
+            await message.reply_text("Kenapa kamu menghapusnya??")
         try:
             shutil.rmtree(f"./DOWNLOADS/{userid}")
         except Exception:
