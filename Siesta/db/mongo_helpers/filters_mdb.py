@@ -1,5 +1,4 @@
 import pymongo
-
 from Kim.config import get_str_key
 
 MONGO2 = get_str_key("FILTERS_MONGO", None)
@@ -26,6 +25,7 @@ async def add_filter(grp_id, text, reply_text, btn, file, alert):
         mycol.update_one({"text": str(text)}, {"$set": data}, upsert=True)
     except:
         print("Tidak dapat menyimpan, periksa db Anda")
+
 
 async def find_filter(group_id, name):
     mycol = mydb[str(group_id)]
